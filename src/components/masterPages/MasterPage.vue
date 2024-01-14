@@ -9,6 +9,7 @@
         <header-comp :backFun="goHome"></header-comp>
             <slot>
             </slot>
+ <random-cocktail></random-cocktail>
         </div>
     </div>
     <div v-else class="load error">
@@ -25,11 +26,13 @@ import { ROUTER_PATHS } from '@/constants/router'
 
 import { mapState, mapActions } from 'pinia'
 import { useRootStore } from '@/stores/root'
+import RandomCocktail from '../UI/RandomCocktail.vue'
 
 export default {
     name: 'masterPage',
     components: {
         HeaderComp,
+        RandomCocktail,
 
     },
     props:{
@@ -52,6 +55,7 @@ export default {
         }
       
      },
+
     },
     mounted() {
         this.getIngredients()

@@ -14,10 +14,13 @@
     gap: 25px;
     &__section{
 
-        display: grid;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
         gap: 25px;
         z-index: 5;
         padding-top: 80px;
+        max-width: 100%;
     }
     &__btn-link{
         height: 100%;

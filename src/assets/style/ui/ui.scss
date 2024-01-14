@@ -14,12 +14,12 @@
 //==========================================================
 .select {
     background-color: $decor;
-    width: clamp(50%, 5vw, 500px);
+    width: clamp(30%, 5vw, 500px);
 }
 .custom-select-wrapper {
     color: #ececec;
     position: relative;
-    width: 400px;
+   max-width: 400px;
     height: 50px;
     input{
         width: 100%;

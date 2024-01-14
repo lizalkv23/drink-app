@@ -5,7 +5,7 @@
         </router-link>
         
         <div class="header__user">
-            <div class="header__back">
+            <div class="header__back" v-if="btnHidden">
                 <custom-button
                 @click="goBack"
                  > <font-awesome-icon :icon="['far', 'circle-left']" /> </custom-button>
@@ -35,7 +35,14 @@ export default {
             ROUTER_PATHS
         }
     },
-
+computed: {
+    btnHidden() {
+        if(this.$route.name == ROUTER_PATHS.HOME){
+            return false
+        }
+        return true
+    }
+},
     methods: {
         ...mapActions(useRootStore, ['setIngredient']),
 

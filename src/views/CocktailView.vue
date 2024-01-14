@@ -18,8 +18,7 @@
                     </div>
                 </div>
             
-                    <!-- <swiper-vue v-if="cocktails.length > 0" class="drink__slider"  /> -->
-               
+               <random-cocktail></random-cocktail>
             </div>
             <div class="drink__img">
                 <img :src="drinkInfo.strDrinkThumb" alt="" />
@@ -34,12 +33,13 @@ import HeaderComp from '@/components/header/HeaderComp.vue'
 
 import { mapState, mapActions } from 'pinia'
 import { useRootStore } from '@/stores/root'
-// import SwiperVue from '@/components/swiper/SwiperVue.vue'
+import RandomCocktail from '@/components/UI/RandomCocktail.vue'
 export default {
     name: 'CocktailView',
     components: {
         HeaderComp,
-        // SwiperVue
+        RandomCocktail,
+        
     },
     data() {
         return {

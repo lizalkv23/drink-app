@@ -1,5 +1,5 @@
 <template>
-    <h1 class="title">{{ ingredient }}</h1>
+    <h1 class="title title-cards">{{ ingredient }}</h1>
     <div class="cocktail__wrapper"  v-if="cocktails.length > 0">
 
         <div class="cocktail__card" v-for="cocktail in cocktails" :key="cocktail.idDrink">
@@ -53,4 +53,7 @@ export default {
 
 <style lang="scss" scoped>
 @import '../../assets/style/index';
+.title-cards{
+    align-self: flex-end;
+}
 </style>

@@ -25,9 +25,7 @@
                 </p>
             </div>
             <!-- <swiper-vue :cocktailList="cocktails" /> -->
-        <custom-button class="main__btn"
-            >Get Random Cocktail <font-awesome-icon :icon="['fas', 'martini-glass']" />
-        </custom-button>
+
     </main>
 </template>
 
@@ -80,7 +78,9 @@ export default {
         },
         clearInput() {
         this.filterText = '';
-    }
+    },
+
+    
 
         // async getCocktailByIngr(ingredient) {
         //     try {
