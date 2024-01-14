@@ -1,0 +1,58 @@
+@import './var';
+@import './reset';
+@import './ui/ui';
+@import './master-page/master-page';
+@import './cocktails/cocktail-card';
+@import './cocktails/cocktail-view';
+@import './error//load';
+@import './header/header';
+@import './main/main';
+@import './slider/slider';
+
+@import url(https://fonts.googleapis.com/css?family=Poppins:regular,500,700);
+@import url(https://fonts.googleapis.com/css?family=Red+Rose:regular,500,600,700);
+
+.wrapper {
+    overflow: hidden;
+    min-height: 100%;
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: 0;
+    
+}
+// main {
+//     flex: 1 1 auto;
+// }
+.title {
+
+    // color: $bg;
+    font-weight: 700;
+    font-size: 35px;
+    // align-self: center;
+    align-self: self-end;
+    position: relative;
+    line-height: 1.2;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: center;
+    padding-bottom: 25px;
+    &::after {
+        position: absolute;
+        content: '';
+        width: 30%;
+        height: 3px;
+        border-radius: 8px;
+        background-color: $btn;
+        bottom: 15px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
+canvas {
+    position: relative;
+    width: 100%;
+    min-height: 100%;
+    display: block;
+    // z-index: 38;
+}

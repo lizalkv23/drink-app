@@ -1,0 +1,38 @@
+.home {
+    display: grid;
+    text-align: center;
+    min-height: 100vh;
+    grid-template-rows: auto;
+    position: relative;
+    z-index: 1;
+    &__item {
+        position: absolute;
+        height: 100%;
+        width: 50%;
+        top: 0;
+        // left: 0;
+        right: 0;
+        z-index: 2;
+        min-height: 100%;
+        // &::before {
+        //     content: '';
+        //     position: absolute;
+        //     top: 0;
+        //     left: 0;
+        //     bottom: 0;
+        //     background: #f0eded25;
+        //     height: 100%;
+        //     width: 100%;
+        //     z-index: 1;
+        // }
+    }
+    &__video {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: 0;
+        left: 0;
+        top: 0;
+    }
+}
