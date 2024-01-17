@@ -1,7 +1,7 @@
 <template>
     <div class="custom-select-wrapper">
         <input class="custom-select"
-         placeholder="Chose your ingredient"
+         :placeholder="$t('home.select.placeholder')"
           @click="toggleDropdown" 
           @input="filterIngredients"
           :value="filterText"
@@ -18,8 +18,6 @@
                 @click="selectOption(ingredient)"
                 >
                 {{ ingredient.strIngredient1 }}
-                <!-- v-for="(ingredient, index) in ingredientsCocktail"
-                :key="index" -->
             </div>
         </div>
     </div>
@@ -57,12 +55,9 @@ export default {
             this.isDropdownOpen = !this.isDropdownOpen
         },
         selectOption(ingredient) {
-           
             this.$emit('option', ingredient)
             this.isDropdownOpen = false
-            this.filterText = ingredient.strIngredient1;
-           
-            
+            this.filterText = ingredient.strIngredient1;  
         },
         filterIngredients(event) {
             this.filterText = event.target.value;

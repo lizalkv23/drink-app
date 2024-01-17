@@ -14,33 +14,28 @@
             rotate: 50,
             stretch: 0,
             depth: 100,
-            modifier: 2,
+            modifier: 1,
             slideShadows: true
         }"
         :modules="modules"
     >
  
         <swiper-slide v-for="drink in cocktails" :key="drink.idDrink" class="slide">
-            <div class="slide__wrap" @click="getId(drink.idDrink)" >
-                <!-- <router-link :to="`/cocktail/${routeIdCocktail}`"> -->
+            <div class="slide__wrap"  >
+                <router-link :to="`/cocktail/${drink.idDrink}`">
                     <div>
 
-                        <div class="slide__img">
+                        <div class="slide__img" @click="getId(drink.idDrink)">
                             <img :src="drink.strDrinkThumb" alt="" />
                         </div>
                         <div class="slide__text">
                             {{ drink.strDrink }}
                         </div>
                     </div>
-                <!-- </router-link> -->
+                </router-link>
             </div>
         </swiper-slide>
     </swiper>
-    <!-- :to="`/cocktail/${drink.idDrink}`" -->
-    <!-- :centeredSlides="true" -->
-
-    <!-- @swiper="onSwiper"
-        v-swiper="swiperR" -->
 </template>
 
 <script>
@@ -52,42 +47,21 @@ import 'swiper/css'
 import 'swiper/css/pagination'
 import 'swiper/css/effect-coverflow'
 import 'swiper/css/navigation'
-// import 'swiper/css'
 export default {
     name: 'swiperVue',
     components: {
         Swiper,
         SwiperSlide
     },
-    // props: {
-    //     cocktailList: {
-    //         type: Array,
-    //         required: true
-    //     }
-    // },
     data() {
         return {
             modules: [Autoplay, EffectCoverflow, Navigation],
             routeIdCocktail: '',
-            // cocktailsList: []
-            // swiperR: null
         }
     },
     computed:{
         ...mapState(useRootStore , ['cocktails']),
 
-    },
-    methods:{
-        getId(id){
-            this.routeIdCocktail = id
-        },
-        // getCocktailList(){
-        //     return this.cocktailsList = this.cocktails
-        // }
-    },
-    mounted(){
-        // this.getIngredients()
-    //    this.getCocktailList()
     }
 }
 </script>

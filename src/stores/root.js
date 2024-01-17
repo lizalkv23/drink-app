@@ -23,20 +23,34 @@ export const useRootStore = defineStore('root', {
             try {
                 const response = await axios.get(COCKTAIL_BY_INGREDIENT + ingredient)
                 this.cocktails = response?.data?.drinks
+
+                this.saveToLocalStorage()
+
             } catch (error) {
                 console.error('Error fetching data:', error)
             }
         },
-        // async getCocktailInfo(drinkId) {
-        //     try {
-        //         const data = await axios.get(COCKTAIL_BY_ID + drinkId)
-        //         console.log(data);
-        //         this.drinkInfo =  data?.data?.drinks[0]
-        //     } catch (error) {
-        //         console.error('Error fetching data:', error)
-        //     }
-        // },
-               async getCocktailInfo(drinkId) {
+        saveToLocalStorage() {
+            localStorage.setItem('cocktails', JSON.stringify(this.cocktails));
+        },
+
+        loadFromLocalStorage() {
+            const storedCocktails = localStorage.getItem('cocktails');
+            if (storedCocktails) {
+                this.cocktails = JSON.parse(storedCocktails);
+            }
+        },
+        saveIngredientToLocalStorage() {
+            localStorage.setItem('ingredient', this.ingredient);
+        },
+
+        loadIngredientFromLocalStorage() {
+            const storedIngredient = localStorage.getItem('ingredient');
+            if (storedIngredient) {
+                this.ingredient = storedIngredient;
+            }
+        },
+        async getCocktailInfo(drinkId) {
             try {
                 const data = await axios.get(COCKTAIL_BY_ID + drinkId)
                 console.log(data);
@@ -47,6 +61,11 @@ export const useRootStore = defineStore('root', {
         },
         setIngredient(value){
             this.ingredient = value.strIngredient1
+            this.saveIngredientToLocalStorage();
+        },
+        reset()
+        {
+            this.ingredient = null
         }
     }
 })

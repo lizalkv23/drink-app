@@ -17,7 +17,6 @@
                         </p>
                     </div>
                 </div>
-            <!-- <swiper-vue></swiper-vue> -->
                <random-cocktail ></random-cocktail>
             </div>
             <div class="drink__img">
@@ -25,14 +24,10 @@
             </div>
         </div>
     </div>
-    <!-- <div > lodffffffffffffffffffdd ddddddddddddddding</div> -->
 </template>
 
 <script>
 import HeaderComp from '@/components/header/HeaderComp.vue'
-// import SwiperVue from '@/components/swiper/SwiperVue.vue'
-// import { mapState, mapActions } from 'pinia'
-// import { useRootStore } from '@/stores/root'
 import { COCKTAIL_RANDOM } from '@/constants/api'
 import axios from 'axios'
 import RandomCocktail from '@/components/UI/RandomCocktail.vue'
@@ -40,42 +35,31 @@ export default {
     name: 'CocktailView',
     components: {
         HeaderComp,
-        // SwiperVue ,
         RandomCocktail
     },
     data() {
       return {
-            // drinkId: null,
             infoListRandom: null
         }
     },
 
     computed: {
-        // ...mapState(useRootStore, [ 'cocktails','drinkInfo']),
         getRecipe(){
             const recipe = []
             for (let i = 1; i < 15; i++) {
-               
                 if(!this.infoListRandom[`strIngredient${[i]}`]) {
                     break
                 }
                 const recipeIng = {
                     id: Date.now(),
                     name : this.infoListRandom[`strIngredient${[i]}`],
-                    // measure :this.drinkInfo[`strMeasure${[i]}`]
                 }
                 recipe.push(recipeIng)
-
-
-
             }
             return recipe
         }
-
     },
- 
-        // ...mapActions(useRootStore, ['getCocktailInfo']),
-        methods: {
+         methods: {
         async getRandomCocktail() {
             const data = await axios.get(COCKTAIL_RANDOM)
             console.log();
@@ -83,10 +67,6 @@ export default {
             console.log(this.infoListRandom);
         }
     },
-    // created(){
-    //    this.drinkId = this.$route.params.id 
-    // }
-    // ,
     mounted () {
         this.getRandomCocktail()
     },

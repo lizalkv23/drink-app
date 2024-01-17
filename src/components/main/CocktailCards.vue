@@ -1,54 +1,37 @@
 <template>
     <h1 class="title title-cards">{{ ingredient }}</h1>
     <div class="cocktail__wrapper"  v-if="cocktails.length > 0">
-
-        <div class="cocktail__card" v-for="cocktail in cocktails" :key="cocktail.idDrink">
-            <router-link :to="`/cocktail/${cocktail.idDrink}`">
-                <div class="cocktail__img">
-                    <img :src="cocktail.strDrinkThumb" alt="" />
-                </div>
-                <div class="cocktail__title">
-                    <p>{{ cocktail.strDrink }}.</p>
-                </div>
-            </router-link>
-        </div>
+        <swiper-vue  ></swiper-vue>
     </div>
 </template>
 
 <script>
 import { mapState, mapActions } from 'pinia'
 import { useRootStore } from '@/stores/root'
-
-// import MasterPage from '@/components/masterPages/MasterPage.vue'
-// import cocktail1Video from '@/assets/img/cocktail1.mp4'
+import SwiperVue from '../swiper/SwiperVue.vue'
 export default {
     name: 'CocktailComp',
-    // props: {
-    //     cocktails: {
-    //         type: Array,
-    //         required: true,
-    //         default: () => []
-    //     },
-
-    // },
+ components: {
+    SwiperVue
+ },
+ data() {
+    return {
+        cocktailsList: []
+    }
+ },
     computed: {
         ...mapState(useRootStore, ['ingredients', 'cocktails', 'ingredient']),
+
 
     },
     methods: {
         ...mapActions(useRootStore, ['getIngredients','setIngredient']),
-
-
+    },
+    created() {
+        useRootStore().loadFromLocalStorage();
+        useRootStore().loadIngredientFromLocalStorage();
     },
 }
-// components: {
-//     MasterPage
-// },
-// computed: {
-//     urlSrc() {
-//         return cocktail1Video
-//     }
-// }
 </script>
 
 <style lang="scss" scoped>

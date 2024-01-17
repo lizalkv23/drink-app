@@ -1,18 +1,15 @@
 <template>
-    
-           <custom-button
-         class="main__btn"
-            @click="goRandomCocktail"
-            >
-            Get Random Cocktail <font-awesome-icon :icon="['fas', 'martini-glass']" />
+        <custom-button
+        class="main__btn"
+        @click="goRandomCocktail"
+        >
+        {{$t('home.button.random')}} <font-awesome-icon :icon="['fas', 'martini-glass']" />
         </custom-button>
 </template>
 
 <script>
 import { ROUTER_PATHS } from '@/constants/router'
-
     export default {
-        
         methods: {
             goRandomCocktail(){
             this.$router.push(ROUTER_PATHS.COCKTAIL_RANDOM)

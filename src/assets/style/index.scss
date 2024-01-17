@@ -21,16 +21,9 @@
     top: 0;
     
 }
-// main {
-//     flex: 1 1 auto;
-// }
 .title {
-
-    // color: $bg;
     font-weight: 700;
     font-size: 35px;
-    // align-self: center;
-    // align-self: self-end;
     position: relative;
     line-height: 1.2;
     overflow: hidden;
@@ -54,5 +47,4 @@ canvas {
     width: 100%;
     min-height: 100%;
     display: block;
-    // z-index: 38;
 }

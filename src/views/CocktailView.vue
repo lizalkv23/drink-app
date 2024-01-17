@@ -38,21 +38,18 @@ export default {
     name: 'CocktailView',
     components: {
         HeaderComp,
-        RandomCocktail,
-        
+        RandomCocktail,  
     },
     data() {
         return {
             drinkId: null,
         }
     },
-
     computed: {
         ...mapState(useRootStore, [ 'cocktails','drinkInfo']),
         getRecipe(){
             const recipe = []
             for (let i = 1; i < 15; i++) {
-               
                 if(!this.drinkInfo[`strIngredient${[i]}`]) {
                     break
                 }
@@ -62,13 +59,9 @@ export default {
                     measure :this.drinkInfo[`strMeasure${[i]}`]
                 }
                 recipe.push(recipeIng)
-
-
-
             }
             return recipe
         }
-
     },
     methods: {
         ...mapActions(useRootStore, ['getCocktailInfo']),

@@ -1,0 +1,26 @@
+{
+    "home":
+    {
+        "title": "You ready? Let's throw a party",
+        "select":{
+            "placeholder": "Choose your ingredient",
+            "ingredient":{
+                    "gin": "gin"
+            }
+
+        },
+
+        "info":{
+            "one_part" : "Unleash your inner",
+            "two_part" : "with our array of tantalizing cocktail recipes and elevate your",
+            "three_part" : "new heights",
+            "span1" : "mixologist",
+            "span2" : "drinking experience"
+        } ,
+        "button": {
+          "random" : "Get random cocktail",
+          "go": "go"
+        }
+
+    }
+}
