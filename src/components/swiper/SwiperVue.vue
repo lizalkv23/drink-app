@@ -1,7 +1,7 @@
 <template>
     <swiper 
         class="slider"
-        :slides-per-view="3"
+        :slides-per-view="2"
         :autoplay="{
             delay: 3000,
             disableOnInteraction: false
@@ -25,7 +25,7 @@
                 <router-link :to="`/cocktail/${drink.idDrink}`">
                     <div>
 
-                        <div class="slide__img" @click="getId(drink.idDrink)">
+                        <div class="slide__img">
                             <img :src="drink.strDrinkThumb" alt="" />
                         </div>
                         <div class="slide__text">

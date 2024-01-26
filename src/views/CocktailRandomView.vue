@@ -13,7 +13,7 @@
                     </ul>
                     <div class="drink__recipe">
                         <p class="drink__text">
-                            Take a sip of this the <span>{{ infoListRandom.strDrink }}</span>, and let the magic unfold in your glass. <br/>The  <span>{{ infoListRandom.strDrink }}</span> so exquisite, it turns every moment into a flavor-packed adventure.
+                           {{ $t('description.one_part') }} <span>{{ infoListRandom.strDrink }}</span>, {{ $t('description.two_part') }} <span>{{ infoListRandom.strDrink }}</span>  {{ $t('description.three_part') }}
                         </p>
                     </div>
                 </div>

@@ -1,0 +1,103 @@
+.auth {
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  gap: 30px;
+  background: url('/src/assets/img/coctail-bg-home.jpg') no-repeat;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  @media (max-width :600px) {
+//   background-size: contain;
+    
+  }
+  input {
+    width: 100%;
+    border-radius: 8px;
+    background-color: #fcfbfb;
+    height: 40px;
+    padding: 0 15px;
+    &::placeholder {
+      font-size: rem(16);
+    }
+
+  }
+  &__logo{
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 80px;
+    height: 80px;
+  }
+  &__container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 15px;
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    &::before{
+        content:'';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #282626c0;
+        z-index: 1;
+    }
+  }
+  &__title {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 100%;
+    background-image: linear-gradient(
+      143deg,
+      rgb(93, 223, 50) 25%,
+      rgb(228, 253, 3) 40%,
+      rgb(253, 138, 6) 77%
+    );
+    font-size: super-clamp(16, 32, 320, 1220);
+    &:not(:last-child) {
+      margin-bottom: rem(25);
+    }
+  }
+  &__inner {
+    padding: 20px;
+    display: grid;
+    gap: 20px;
+    position: relative;
+    z-index: 2;
+  }
+  &__google {
+    text-transform: uppercase;
+  }
+  &__regest {
+    display: grid;
+    gap: 25px;
+  }
+  &__email {
+
+  }
+  &__password {
+  }
+  &__btn {
+    width: 100%;
+    text-transform: uppercase;
+  }
+  &__text {
+    text-align: center;
+  }
+  &__create-acc {
+    font-size: rem(18);
+    span {
+      cursor: pointer;
+      color: #0fb812;
+      font-size: rem(16);
+    }
+  }
+}

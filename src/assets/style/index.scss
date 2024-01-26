@@ -1,3 +1,4 @@
+@import './functions';
 @import './var';
 @import './reset';
 @import './ui/ui';
@@ -8,10 +9,10 @@
 @import './header/header';
 @import './main/main';
 @import './slider/slider';
+@import './auth/auth';
 
-@import url(https://fonts.googleapis.com/css?family=Poppins:regular,500,700);
-@import url(https://fonts.googleapis.com/css?family=Red+Rose:regular,500,600,700);
-
+@import url(https://fonts.googleapis.com/css?family=Rubik:regular,500,700,500italic&display=swap);
+@import url(https://fonts.googleapis.com/css?family=Red+Rose:regular,500,600,700&display=swap);
 .wrapper {
     overflow: hidden;
     min-height: 100%;
@@ -22,8 +23,9 @@
     
 }
 .title {
+    font-size: super-clamp(16, 32, 320, 1220);
     font-weight: 700;
-    font-size: 35px;
+    // font-size: 35px;
     position: relative;
     line-height: 1.2;
     overflow: hidden;

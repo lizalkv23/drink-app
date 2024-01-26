@@ -1,6 +1,7 @@
 <template>
     <div>
-        <input :value="modelValue" @input="upDate" type="text" class="inp" />
+        <!-- :type="placeholderTitle" -->
+        <input  :type="placeholderTitle" @input="upDate" :value="modelValue"  :placeholder="placeholderTitle"/>
     </div>
 </template>
 
@@ -9,8 +10,16 @@ export default {
     name: 'CustomInput',
     props: {
         modelValue: {
-            type: String,
+            type: [String, Number]
         },
+        placeholderTitle:{
+            type: String,
+            required: true
+        },
+        typeInput:{
+            type: String,
+            required: true
+        }
     },
     methods: {
         upDate(event) {
@@ -21,7 +30,4 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.inp {
-    background-color: green;
-}
 </style>
