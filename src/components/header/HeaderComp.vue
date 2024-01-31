@@ -36,7 +36,7 @@
           </div>
           <div v-if="user.displayName" class="header__user-name">{{ user.displayName }}</div>
           <div v-else class="header__user-name">{{ user.email }}</div>
-          <custom-button @click="logout">
+          <custom-button @click="logoutAndGoLoginPage">
           <font-awesome-icon :icon="['fas', 'right-to-bracket']"  />
 
           </custom-button>
@@ -89,6 +89,10 @@ export default {
       localStorage.setItem('lastLanguage', this.$i18n.locale)
     },
     goAuthPage() {
+      this.$router.push(ROUTER_PATHS.AUTH_PAGE)
+    },
+    logoutAndGoLoginPage(){
+      this.logout()
       this.$router.push(ROUTER_PATHS.AUTH_PAGE)
     }
   },

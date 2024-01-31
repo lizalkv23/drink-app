@@ -1,112 +1,104 @@
 .header {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  gap: super-clamp(10, 25, 320, 1000);
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 15px;
+  z-index: 50;
+  &__user {
     display: flex;
-    justify-content: space-between;
+    gap: 15px;
     align-items: center;
-    padding: 20px 15px;
-    z-index: 50;
-    &__user {
-        display: flex;
-        gap: 15px;
-        align-items: center;
-        color: $btn;
-        svg{
-            font-size: 20px;
-        }
-    }
-    &__back {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 35px;
-    }
-    &__local {
-        cursor: pointer;
-        font-size: 25px;
-        position: relative; 
-    }
-    &__lang {
-        // cursor: pointer;
-        // font-size: 25px;
-        // position: relative; 
-    }
-    &__dropdown{
-        position: absolute;
-        z-index: 5;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        height: auto;
-        border: 1px solid $btn;
-        overflow: scroll;
-        font-size: 18px;
-        border-top: none;
-        text-align: center;
-        border-radius: 0 0 5px 5px;
-        background-color: $bg;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        &::-webkit-scrollbar {
-            width: 0;
-        }
-    }
-    &__dropdown-opt {
-        cursor: pointer;
-        transition: background-color 0.3s ease;
-        &:hover {
-            background-color: #e7ec69b0;
-        }
-    }
-    &__reg {
-//   display: flex;
-//   align-items: center;
-//   font-size: rem(25);
-    }
-    &__reg-btn {
-        cursor: pointer;
-        // font-size: 5px;
-    }
-    &__login-item{
-        display: flex;
-        gap: 20px;
-        align-items: center;
-
-    }
-    &__img-reg{
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-        overflow: hidden;
-        img{
-            width: 100%;
-            height: 100%;
-        }
-    }
-    &__letter-reg{
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        text-transform: uppercase;
-        width: 100%;
-        height: 100%;
-        background-color: $btn;
-        // color: #d3d2d2;
-        color: $bgCard;
-    }
-    &__user-name{
-font-size: rem(16);
-max-width: 150px;
-overflow: hidden;
-text-overflow: ellipsis;
-// text-align: center;
-    }
-}
-.logo {
-    width: 70px;
-    cursor: pointer;
-    img {
-      max-width: 100%;
+    color: $btn;
+    svg {
+      font-size: 20px;
     }
   }
+  &__back {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 35px;
+  }
+  &__local {
+    cursor: pointer;
+    font-size: 25px;
+    position: relative;
+  }
+  &__dropdown {
+    position: absolute;
+    z-index: 5;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: auto;
+    border: 1px solid $btn;
+    overflow: scroll;
+    font-size: 18px;
+    border-top: none;
+    text-align: center;
+    border-radius: 0 0 5px 5px;
+    background-color: $bg;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    &::-webkit-scrollbar {
+      width: 0;
+    }
+  }
+  &__dropdown-opt {
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    &:hover {
+      background-color: #e7ec69b0;
+    }
+  }
+  &__reg-btn {
+    cursor: pointer;
+  }
+  &__login-item {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+  }
+  &__img-reg {
+    flex: 0 0 40px;
+    height: 40px;
+    border-radius: 50%;
+    overflow: hidden;
+    img {
+      width: 40px;
+      height: 40px;
+      object-fit: cover;
+    }
+  }
+  &__letter-reg {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-transform: uppercase;
+    width: 100%;
+    height: 100%;
+    background-color: $btn;
+    color: $bgCard;
+  }
+  &__user-name {
+    font-size: rem(16);
+    max-width: 120px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: #fff;
+  }
+}
+.logo {
+  width: super-clamp(40, 70, 320, 1000);
+  cursor: pointer;
+  img {
+    max-width: 100%;
+    object-fit: cover;
+  }
+}

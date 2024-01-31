@@ -8,7 +8,7 @@ import {
   signOut,
   getAuth,
   createUserWithEmailAndPassword,
-  signInWithEmailAndPassword
+  signInWithEmailAndPassword,
 } from 'firebase/auth'
 
 export const useUsersStore = defineStore('users', {
@@ -27,7 +27,31 @@ export const useUsersStore = defineStore('users', {
     setError(error) {
       this.error = error
     },
-
+    stateUser() {
+      return new Promise((resolve, reject) => {
+        const auth = getAuth();
+        const unsubscribe = auth.onAuthStateChanged(user => {
+          // При изменении состояния аутентификации вызывается этот колбэк
+          if (user) {
+            // Если пользователь аутентифицирован, сохраняем его данные
+            this.setUser(user);
+            console.log(user);
+            unsubscribe(); // Отписываемся от слушателя
+            resolve(user);
+          } else {
+            // Если пользователь не аутентифицирован
+            this.setUser(null); // Очищаем данные пользователя
+            console.log("Пользователь не аутентифицирован");
+            unsubscribe(); // Отписываемся от слушателя
+            resolve(null);
+          }
+        }, error => {
+          // Обрабатываем возможные ошибки
+          console.error("Ошибка при отслеживании состояния аутентификации:", error);
+          reject(error);
+        });
+      });
+    },
     async saveLoginUserData(loginResult) {
       const user = loginResult?.user
       this.setUser(user)
@@ -97,15 +121,12 @@ export const useUsersStore = defineStore('users', {
 
           createUserWithEmailAndPassword(auth, email, password)
             .then((loginResult) => {
-              // this.saveLoginUserData(loginResult)
               this.setUser(loginResult?.user)
-              // localStorage.setItem('authEmail', JSON.stringify(this.user))
-              // let credential = EmailAuthProvider({email, password})
-              // localStorage.setItem('authEmail', JSON.stringify(credential))
               console.log(loginResult)
               resolve(loginResult?.user)
             })
             .catch((error) => {
+              this.setError(error)
               reject(error)
               // const errorCode = error.code;
               // const errorMessage = error.message;
@@ -124,6 +145,7 @@ export const useUsersStore = defineStore('users', {
               resolve(loginResult?.user)
             })
             .catch((error) => {
+              this.setError(error)
               reject(error)
               // const errorCode = error.code;
               // const errorMessage = error.message;

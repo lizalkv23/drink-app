@@ -1,8 +1,8 @@
 <template>
-    <div>
+    
         <!-- :type="placeholderTitle" -->
-        <input  :type="placeholderTitle" @input="upDate" :value="modelValue"  :placeholder="placeholderTitle"/>
-    </div>
+        <input :type="typeInput"  @input="upDate" :value="modelValue"  :placeholder="placeholderTitle" autocomplete="on"/>
+ 
 </template>
 
 <script>

@@ -1,50 +1,54 @@
 .slider {
-    width: 100%;
-    margin: 0 auto;
-    height: 300px;
-    padding: 20px !important;
-    background-color: $accent;
+  width: 100%;
+  margin: 0 auto;
+  height: 300px;
+  padding: 20px !important;
+  background-color: $accent;
 }
 .slide {
-    width: 250px !important;
-    height: 100%;
-    &__img {
-        overflow: hidden;
-        border-radius: 20px;
-        position: relative;
-        height: 250px;
-        img {
-            border-radius: 8px;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            overflow: hidden;
-            transition: all 0.5s;
-            &:hover {
-                filter: saturate(1.4);
-                transform: scale(1.05);
-            }
-        }
+  width: 250px !important;
+  height: 100%;
+  @media (max-width: 580px) {
+    width: 170px !important;
+  }
+  &__img {
+    overflow: hidden;
+    border-radius: 20px;
+    position: relative;
+    height: 250px;
+    img {
+      border-radius: 8px;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      overflow: hidden;
+      transition: all 0.5s;
+      &:hover {
+        filter: saturate(1.4);
+        transform: scale(1.05);
+      }
     }
-    &__text {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        overflow-y: auto;
-        background-color: #d6d015;
-        color: black;
-        padding: 10px 5px;
-        text-align: center;
-        text-overflow: ellipsis;
-        overflow: hidden;
-        text-wrap: nowrap;
-        border-radius: 0 0 8px 8px;
-        &::-webkit-scrollbar {
-            width: 0;
-        }
+  }
+  &__text {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    overflow-y: auto;
+    background-color: #d6d015;
+    color: black;
+    padding: 10px 5px;
+    text-align: center;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    text-wrap: nowrap;
+    border-radius: 0 0 8px 8px;
+    &::-webkit-scrollbar {
+      width: 0;
     }
+  }
 }
-.swiper-button-prev, .swiper-button-next{
-    color: $btn !important;
- }
+.swiper-button-prev,
+.swiper-button-next {
+  color: $btn !important;
+}

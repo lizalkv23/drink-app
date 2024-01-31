@@ -1,79 +1,119 @@
 .drink {
-    height: 100vh;
- width: 100vw;
-    &__wrapper {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        max-width: 100%;
-        height: 100%;
+  min-height: 100%;
+  width: 100%;
+  position: relative;
+  &__wrapper {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    width: 100%;
+    height: 100%;
+    @media (max-width: 800px) {
+      grid-template-columns: 1fr;
     }
-    &__img {
-        img{
-            object-fit: cover;
-            width: 100%;
-            height: 100%;
-        }
+  }
+  &__img {
+    min-height: 100%;
+    @media (max-width: 800px) {
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 100%;
     }
-        &__info {
+    img {
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+    }
+  }
+  &__info {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    z-index: 3;
+    display: grid;
     margin: 0 auto;
-    height: 100vh;
     padding: 80px 20px 50px;
+    min-height: 100vh;
     width: 100%;
     gap: 25px;
-    background: url('/src/assets/img/coctail-bg-prev.jpg') no-repeat;
+    position: relative;
+    background: url('/src/assets/img/cocktail-bg.jpg') no-repeat;
     background-size: cover;
     background-position: center;
-    span{
-        font-family: 'Red Rose';
-        color: #35d019;
-        text-transform: capitalize;
-        font-weight: 700;
-        font-size: 22px;
+    &::before {
+      content: '';
+      background: #181818b1;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      z-index: 1;
     }
-        }
-        &__inner {
+    @media (max-width: 800px) {
+      background: none;
+      width: 100%;
+    }
+    span {
+      font-family: 'Red Rose';
+      color: #35d019;
+      text-transform: capitalize;
+      font-weight: 700;
+      font-size: 22px;
+    }
+  }
+  &__inner {
     padding: 10px 20px;
-    width: 70%;
     margin: 0 auto;
+    position: relative;
+    z-index: 3;
+  }
+  &__list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    &:not(:last-child) {
+      margin-bottom: 25px;
     }
-    &__list {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        &:not(:last-child){
-            margin-bottom: 25px;
-         }
+  }
+  &__ing {
+    font-family: 'Red Rose';
+    font-size: 20px;
+    &:not(:last-child) {
+      margin-bottom: 10px;
     }
-    &__ing {
-        // font-style: italic;
-        font-family: 'Red Rose';
-        font-size: 20px;
-        &:not(:last-child){
-            margin-bottom: 10px;
-         }
-    }
-    &__recipe {
-        text-align: center;
-        line-height: 1.5;
-        background-color: rgba(33, 32, 32, 0.679);
-        padding: 10px;
-        border-radius: 5px;
-    }
-    &__title {
-        margin-top: 20px;
-        text-align: center;
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-size: 100%;
-        background-image:linear-gradient(143deg, rgb(88, 105, 12)25%, rgb(60, 242, 115) 40%, rgb(230, 14, 14) 77%);
-    }
-    &__text {
-    }
-    &__slider {
-        border-radius: 20px;
-        box-shadow: 0px 5px 10px #35d019;
-    }
+  }
+  &__recipe {
+    text-align: center;
+    line-height: 1.5;
+    background-color: rgba(33, 32, 32, 0.679);
+    padding: 10px;
+    border-radius: 5px;
+  }
+  &__title {
+    margin-top: 20px;
+    text-align: center;
+    align-self: self-end;
+    position: relative;
+    z-index: 3;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 100%;
+    background-image: linear-gradient(
+      143deg,
+      rgb(88, 105, 12) 25%,
+      rgb(60, 242, 115) 40%,
+      rgb(230, 14, 14) 77%
+    );
+  }
+  &__text {
+    max-width: 500px;
+  }
+  &__slider {
+    border-radius: 20px;
+    box-shadow: 0px 5px 10px #35d019;
+  }
 }

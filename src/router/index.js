@@ -9,7 +9,10 @@ const router = createRouter({
     {
       path: ROUTER_PATHS.HOME,
       name: ROUTER_PATHS.HOME,
-      component: HomeView
+      component: HomeView,
+      meta: {
+        requireAuth: true
+      },
     },
     {
       path: ROUTER_PATHS.COCKTAIL,
@@ -57,7 +60,7 @@ router.beforeEach(async (to) => {
     let isAuthenticated = store.$state.user
 
     if (!isAuthenticated) isAuthenticated = await store.loginWithCredential()
-
+    if (!isAuthenticated)  isAuthenticated = await store.stateUser()
     if (!isAuthenticated)
       return {
         name: ROUTER_PATHS.AUTH_PAGE

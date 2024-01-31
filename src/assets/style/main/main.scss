@@ -1,71 +1,56 @@
 .main {
-    position: absolute;
-    width: 50%;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    z-index: 2;
-    padding: 20px 20px 50px;
-    background: url('/src/assets/img/cocktail-bg.jpg') no-repeat;
-    background-size: cover;
-    background-position: center;
-    display: grid;
+  z-index: 2;
+  position: relative;
+  padding: 80px 20px 50px;
+  background-color: #0b0b0b71;
+  display: grid;
+  gap: 25px;
+  min-height: 100vh;
+  &__section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     gap: 25px;
-    &__section{
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        gap: 25px;
-        z-index: 5;
-        padding-top: 80px;
-        max-width: 100%;
+    z-index: 5;
+    max-width: 100%;
+  }
+  &__btn-link {
+    height: 100%;
+    font-size: 18px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  &__btn {
+    justify-self: center;
+    align-self: self-start;
+    display: flex;
+    align-items: center;
+    justify-self: center;
+    gap: 10px;
+    position: relative;
+    z-index: 2;
+  }
+  &__info {
+    font-weight: 700;
+    font-size: super-clamp(18, 30, 320, 1000);
+    line-height: 1.2;
+    border-radius: 20px;
+    padding: 15px;
+    max-width: 500px;
+    margin: 0 auto;
+    letter-spacing: 0.1em;
+    p {
+      font-family: 'Red Rose', sans-serif;
     }
-    &__btn-link{
-        height: 100%;
-        font-size: 18px;
-        padding: 10px;
-        display: flex;
-        align-items: center;
-        gap: 5px;
+    span {
+      text-transform: uppercase;
+      color: $btn;
     }
-    &__btn {
-        justify-self: center;
-        align-self: center;
-        display: flex;
-        align-items: center;
-        justify-self: center;
-        gap: 10px;
-    }
-    &__info {
-        font-weight: 700;
-        font-size: 28px;
-        line-height: 1.2;
-        border-radius: 20px;
-        padding: 15px;
-        width: 500px;
-        margin: 0 auto;
-        letter-spacing: 0.1em;
-        p {
-            font-family: 'Red Rose', sans-serif;
-        }
-        span {
-            text-transform: uppercase;
-            color: $btn;
-        }
-    }
-    &__select {
-        justify-self: center;
-       align-self: self-end;
-    }
-       &::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            bottom: 0;
-            background: #10101083;
-            height: 100%;
-            width: 100%;
-            z-index: -1;
-        }
+  }
+  &__select {
+    justify-self: center;
+    align-self: self-end;
+  }
 }

@@ -1,7 +1,10 @@
 <template>
   <div class="drink" v-if="drinkInfo">
     <div class="drink__wrapper">
-      <header-comp class="header-cocktail"></header-comp>
+      <teleport to="body">
+
+        <header-comp class="header-cocktail"></header-comp>
+      </teleport>
 
       <div class="drink__info">
         <div class="title drink__title">
@@ -79,10 +82,10 @@ export default {
 
 <style lang="scss" scoped>
 @import '../assets/style/index';
-.title {
-  align-self: auto;
-}
-.header-cocktail {
-  width: 50%;
-}
+// .title {
+//   align-self: auto;
+// }
+// .header-cocktail {
+//   width: 50%;
+// }
 </style>

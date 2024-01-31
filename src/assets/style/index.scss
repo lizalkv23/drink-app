@@ -14,39 +14,36 @@
 @import url(https://fonts.googleapis.com/css?family=Rubik:regular,500,700,500italic&display=swap);
 @import url(https://fonts.googleapis.com/css?family=Red+Rose:regular,500,600,700&display=swap);
 .wrapper {
-    overflow: hidden;
-    min-height: 100%;
-    position: absolute;
-    width: 100%;
-    left: 0;
-    top: 0;
-    
+  overflow: hidden;
+  min-height: 100%;
+  width: 100%;
+  left: 0;
+  top: 0;
 }
 .title {
-    font-size: super-clamp(16, 32, 320, 1220);
-    font-weight: 700;
-    // font-size: 35px;
-    position: relative;
-    line-height: 1.2;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    text-align: center;
-    padding-bottom: 25px;
-    &::after {
-        position: absolute;
-        content: '';
-        width: 30%;
-        height: 3px;
-        border-radius: 8px;
-        background-color: $btn;
-        bottom: 15px;
-        left: 50%;
-        transform: translateX(-50%);
-    }
+  font-size: super-clamp(20, 32, 320, 1220);
+  font-weight: 700;
+  position: relative;
+  line-height: 1.2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: center;
+  padding-bottom: 25px;
+  &::after {
+    position: absolute;
+    content: '';
+    width: 30%;
+    height: 3px;
+    border-radius: 8px;
+    background-color: $btn;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
 }
 canvas {
-    position: relative;
-    width: 100%;
-    min-height: 100%;
-    display: block;
+  position: relative;
+  width: 100%;
+  min-height: 100%;
+  display: block;
 }

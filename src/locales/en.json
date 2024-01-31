@@ -123,5 +123,11 @@
     "one_part": "Take a sip of this the",
     "two_part": " ,and let the magic unfold in your glass.The",
     "three_part": "so exquisite, it turns every moment into a flavor-packed adventure."
+  },
+  "auth":{
+    "one_part": "Invalid password or email, please try again",
+    "two_part": " Email must include symbol",
+    "three_part": "Password must be at least 6 characters long.",
+    "four_part": "The passwords do not match, please try again."
   }
 }

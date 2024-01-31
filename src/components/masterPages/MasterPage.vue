@@ -6,7 +6,10 @@
 
 
         <div class="main">
-        <header-comp :backFun="goHome"></header-comp>
+            <teleport to="body">
+
+                <header-comp :backFun="goHome"></header-comp>
+            </teleport>
             <slot>
             </slot>
             <random-cocktail></random-cocktail>

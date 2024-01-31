@@ -8,10 +8,6 @@
   background-size: cover;
   background-position: center;
   position: relative;
-  @media (max-width :600px) {
-//   background-size: contain;
-    
-  }
   input {
     width: 100%;
     border-radius: 8px;
@@ -21,31 +17,34 @@
     &::placeholder {
       font-size: rem(16);
     }
-
   }
-  &__logo{
+  &__logo {
     position: absolute;
     top: 20px;
     left: 20px;
     width: 80px;
     height: 80px;
+    @media (max-width: 600px) {
+      width: 50px;
+      height: 50px;
+    }
   }
   &__container {
-    max-width: 1000px;
+    max-width: 800px;
     margin: 0 auto;
     padding: 15px;
     position: relative;
     border-radius: 8px;
     overflow: hidden;
-    &::before{
-        content:'';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: #282626c0;
-        z-index: 1;
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #282626c0;
+      z-index: 1;
     }
   }
   &__title {
@@ -79,11 +78,6 @@
   &__regest {
     display: grid;
     gap: 25px;
-  }
-  &__email {
-
-  }
-  &__password {
   }
   &__btn {
     width: 100%;
