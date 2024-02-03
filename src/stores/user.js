@@ -31,22 +31,18 @@ export const useUsersStore = defineStore('users', {
       return new Promise((resolve, reject) => {
         const auth = getAuth();
         const unsubscribe = auth.onAuthStateChanged(user => {
-          // При изменении состояния аутентификации вызывается этот колбэк
           if (user) {
-            // Если пользователь аутентифицирован, сохраняем его данные
             this.setUser(user);
             console.log(user);
-            unsubscribe(); // Отписываемся от слушателя
+            unsubscribe();
             resolve(user);
           } else {
-            // Если пользователь не аутентифицирован
-            this.setUser(null); // Очищаем данные пользователя
+            this.setUser(null); 
             console.log("Пользователь не аутентифицирован");
-            unsubscribe(); // Отписываемся от слушателя
+            unsubscribe(); 
             resolve(null);
           }
         }, error => {
-          // Обрабатываем возможные ошибки
           console.error("Ошибка при отслеживании состояния аутентификации:", error);
           reject(error);
         });
@@ -91,27 +87,6 @@ export const useUsersStore = defineStore('users', {
         } else resolve(false)
       })
     },
-
-    // async loginWithCredentialEmail() {
-    //   return new Promise((resolve, reject) => {
-    //     let credential = localStorage.getItem('authEmail')
-
-    //     if (credential) {
-    //       credential = JSON.parse(credential)
-    //       credential = EmailAuthProvider({email, password})
-    //       signInWithCredential(auth, credential)
-    //         .then((loginResult) => {
-    //           this.saveLoginUserData(loginResult)
-    //           resolve(loginResult)
-    //         })
-    //         .catch((error) => {
-    //           console.log(error)
-    //           this.setError(error)
-    //           reject(false)
-    //         })
-    //     } else resolve(false)
-    //   })
-    // },
 
     signUpWithWithEmailAndPassword(email, password) {
       return new Promise((resolve, reject) => {
@@ -168,16 +143,3 @@ export const useUsersStore = defineStore('users', {
   }
 })
 
-//    signUpWithWithEmailAndPassword(email, password) {
-//     try {
-//         const auth = getAuth();
-//         const userCredential = signInWithEmailAndPassword(auth, email, password);
-//         console.log(userCredential);
-//         const user = userCredential.user;
-//         console.log("User successfully signed in:", user);
-//         return user;
-//     } catch (error) {
-//         console.error("Error signing in:", error);
-//         throw error;
-//     }
-// },
